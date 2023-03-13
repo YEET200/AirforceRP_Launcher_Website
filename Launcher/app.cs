@@ -42,3 +42,19 @@ private void launchButton_Click(object sender, RoutedEventArgs e)
         Process.Start(selectedApp.Path);
     }
 }
+
+using System;
+using System.Net;
+
+namespace CheckVersion
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            WebClient client = new WebClient();
+            string versionText = client.DownloadString("http://patch.airforcerp.com/version.txt");
+            Console.WriteLine("Version: " + versionText);
+        }
+    }
+}
